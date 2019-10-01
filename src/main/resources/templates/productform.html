@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Product Form</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" media="screen">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+
+    <link rel="stylesheet" href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" media="screen">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Product Details</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+    <div class="card bg-light">
+        <div class="card-body">
+        <form class="form" th:object="${product}" th:action="@{/product}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-inline">
+                <label class="col-sm-3 col-form-label-lg">Description:</label>
+                    <input type="text" class="form-control" th:field="*{description}"/>
+            </div>
+            <div class="form-inline">
+                <label class="col-sm-3 col-form-label-lg">Price:</label>
+                    <input type="text" class="form-control" th:field="*{price}"/>
+            </div>
+            <div class="form-inline">
+                <label class="col-sm-3 col-form-label-lg">Image Url:</label>
+                    <input type="text" class="form-control" th:field="*{imageUrl}"/>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
