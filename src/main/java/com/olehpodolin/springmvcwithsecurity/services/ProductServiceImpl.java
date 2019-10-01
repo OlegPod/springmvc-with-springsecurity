@@ -24,4 +24,14 @@ public class ProductServiceImpl implements ProductService {
     public Product save(Product product) {
         return productRepository.save(product);
     }
+
+    @Override
+    public Product getProductById(Long id) {
+
+        if (productRepository.existsById(id)) {
+            return productRepository.findById(id).get();
+        } else {
+            throw new RuntimeException("Product id incorrect");
+        } //todo implement better handling
+    }
 }

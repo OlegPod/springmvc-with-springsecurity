@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Product</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" media="screen">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+
+    <link rel="stylesheet" href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" media="screen">
+</head>
+<body>
+<div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Product Details</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Product Id:</label>
+                            <label th:text="${product.id}">Product Id</label>
+                        </form>
+                        <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Description:</label>
+                            <label th:text="${product.description}">Description</label>
+                        </form>
+                        <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Price:</label>
+                            <label th:text="${product.price}">Price</label>
+                        </form>
+                        <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Product Image:</label>
+                            <label th:text="${product.imageUrl}">Image Url</label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

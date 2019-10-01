@@ -45,7 +45,7 @@ public class Bootstrap implements CommandLineRunner {
         product4.setImageUrl("http://example.com/product4");
 
         Product product5 = new Product();
-        product5.setDescription("Product 2");
+        product5.setDescription("Product 5");
         product5.setPrice(new BigDecimal("25.99"));
         product5.setImageUrl("http://example.com/product5");
 
