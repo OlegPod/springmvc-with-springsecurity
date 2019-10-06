@@ -1,6 +1,7 @@
 package com.olehpodolin.springmvcwithsecurity.bootstrap;
 
 import com.olehpodolin.springmvcwithsecurity.domain.Product;
+import com.olehpodolin.springmvcwithsecurity.repositories.ProductRepository;
 import com.olehpodolin.springmvcwithsecurity.services.ProductService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,10 +11,10 @@ import java.math.BigDecimal;
 @Component
 public class Bootstrap implements CommandLineRunner {
 
-    private ProductService productService;
+    private ProductRepository productRepository;
 
-    public Bootstrap(ProductService productService) {
-        this.productService = productService;
+    public Bootstrap(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     @Override
@@ -49,10 +50,10 @@ public class Bootstrap implements CommandLineRunner {
         product5.setPrice(new BigDecimal("25.99"));
         product5.setImageUrl("http://example.com/product5");
 
-        productService.save(product1);
-        productService.save(product2);
-        productService.save(product3);
-        productService.save(product4);
-        productService.save(product5);
+        productRepository.save(product1);
+        productRepository.save(product2);
+        productRepository.save(product3);
+        productRepository.save(product4);
+        productRepository.save(product5);
     }
 }

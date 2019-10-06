@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class ProductController {
@@ -21,17 +20,24 @@ public class ProductController {
     @GetMapping("/products")
     public String listAllProducts(Model model) {
 
-        model.addAttribute("products", productService.listAllProducts());
+        model.addAttribute("products", productService.listAll());
 
         return "products";
     }
 
     @GetMapping("/products/{id}/show")
-    public String getProduct(Model model, @PathVariable String id) {
+    public String getProduct(Model model, @PathVariable Long id) {
 
-        model.addAttribute("product", productService.getProductById(Long.valueOf(id)));
+        model.addAttribute("product", productService.getById(id));
 
         return "showproduct";
+    }
+
+    @GetMapping("/products/{id}/edit")
+    public String editProduct(@PathVariable Long id, Model model) {
+        model.addAttribute("product", productService.getById(id));
+
+        return "productform";
     }
 
     @GetMapping("/products/new")
@@ -45,7 +51,7 @@ public class ProductController {
     @PostMapping("/product")
     public String saveOrUpdateProduct(Product product) {
 
-        Product savedProduct = productService.save(product);
+        Product savedProduct = productService.saveOrUpdate(product);
 
         return "redirect:/products/" + savedProduct.getId() + "/show";
     }

@@ -4,10 +4,13 @@ import com.olehpodolin.springmvcwithsecurity.domain.Product;
 import com.olehpodolin.springmvcwithsecurity.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl extends AbstractJpaDaoService implements ProductService {
 
     private ProductRepository productRepository;
 
@@ -16,22 +19,36 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> listAllProducts() {
-        return productRepository.findAll();
+    public List<?> listAll() {
+        EntityManager em = emf.createEntityManager();
+
+        return em.createQuery("from Product", Product.class).getResultList();
     }
 
     @Override
-    public Product save(Product product) {
-        return productRepository.save(product);
+    public Product getById(Long id) {
+        EntityManager em = emf.createEntityManager();
+
+        return em.find(Product.class, id);
     }
 
     @Override
-    public Product getProductById(Long id) {
+    public Product saveOrUpdate(Product domainObject) {
+        EntityManager em = emf.createEntityManager();
 
-        if (productRepository.existsById(id)) {
-            return productRepository.findById(id).get();
-        } else {
-            throw new RuntimeException("Product id incorrect");
-        } //todo implement better handling
+        em.getTransaction().begin();
+        Product savedProduct = em.merge(domainObject);
+        em.getTransaction().commit();
+
+        return savedProduct;
+    }
+
+    @Override
+    public void delete(Long id) {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+        em.remove(em.find(Product.class, id));
+        em.getTransaction().commit();
     }
 }
