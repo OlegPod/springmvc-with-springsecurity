@@ -56,4 +56,11 @@ public class ProductController {
         return "redirect:/products/" + savedProduct.getId() + "/show";
     }
 
+    @GetMapping("/products/{id}/delete")
+    public String deleteProduct(@PathVariable Long id) {
+        productService.delete(id);
+
+        return "redirect:/products/";
+    }
+
 }

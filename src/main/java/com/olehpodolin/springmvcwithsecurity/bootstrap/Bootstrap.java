@@ -2,7 +2,6 @@ package com.olehpodolin.springmvcwithsecurity.bootstrap;
 
 import com.olehpodolin.springmvcwithsecurity.domain.Product;
 import com.olehpodolin.springmvcwithsecurity.repositories.ProductRepository;
-import com.olehpodolin.springmvcwithsecurity.services.ProductService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

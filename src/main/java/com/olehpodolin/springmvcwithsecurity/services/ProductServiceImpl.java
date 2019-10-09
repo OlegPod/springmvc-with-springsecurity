@@ -5,8 +5,6 @@ import com.olehpodolin.springmvcwithsecurity.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
