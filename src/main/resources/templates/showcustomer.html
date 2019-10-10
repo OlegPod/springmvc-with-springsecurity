@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Customer</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" media="screen">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+
+    <link rel="stylesheet" href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" media="screen">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Customer Details</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Customer Id:</label>
+                        <label th:text="${customer.id}">Customer Id</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">First Name:</label>
+                        <label th:text="${customer.firstName}">First Name</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Last Name:</label>
+                        <label th:text="${customer.lastName}">Last Name</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Email:</label>
+                        <label th:text="${customer.email}">Email</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Phone Number:</label>
+                        <label th:text="${customer.phoneNumber}">Phone Number</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Address One:</label>
+                        <label th:text="${customer.addressOne}">Address One</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Address Two:</label>
+                        <label th:text="${customer.addressTwo}">Address Two</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">City:</label>
+                        <label th:text="${customer.city}">City</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">State:</label>
+                        <label th:text="${customer.state}">State</label>
+                    </form>
+                    <form class="form-inline">
+                        <label class="col-sm-3 col-form-label-lg">Zip Code:</label>
+                        <label th:text="${customer.zipCode}">Zip Code</label>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

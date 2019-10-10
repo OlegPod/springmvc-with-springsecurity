@@ -35,6 +35,7 @@ public class ProductController {
 
     @GetMapping("/products/{id}/edit")
     public String editProduct(@PathVariable Long id, Model model) {
+
         model.addAttribute("product", productService.getById(id));
 
         return "productform";
@@ -58,6 +59,7 @@ public class ProductController {
 
     @GetMapping("/products/{id}/delete")
     public String deleteProduct(@PathVariable Long id) {
+
         productService.delete(id);
 
         return "redirect:/products/";
