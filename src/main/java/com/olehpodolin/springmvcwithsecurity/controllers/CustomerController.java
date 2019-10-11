@@ -1,7 +1,6 @@
 package com.olehpodolin.springmvcwithsecurity.controllers;
 
 import com.olehpodolin.springmvcwithsecurity.domain.Customer;
-import com.olehpodolin.springmvcwithsecurity.domain.Product;
 import com.olehpodolin.springmvcwithsecurity.services.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +22,7 @@ public class CustomerController {
 
         model.addAttribute("customers", customerService.listAll());
 
-        return "customers";
+        return "customer/customers";
     }
 
     @GetMapping("/customers/{id}/show")
@@ -31,7 +30,7 @@ public class CustomerController {
 
         model.addAttribute("customer", customerService.getById(id));
 
-        return "showcustomer";
+        return "customer/showcustomer";
     }
 
     @GetMapping("/customers/{id}/edit")
@@ -39,7 +38,7 @@ public class CustomerController {
 
         model.addAttribute("customer", customerService.getById(id));
 
-        return "customerform";
+        return "customer/customerform";
     }
 
     @GetMapping("/customers/new")
@@ -47,7 +46,7 @@ public class CustomerController {
 
         model.addAttribute("customer", new Customer());
 
-        return "customerform";
+        return "customer/customerform";
     }
 
     @PostMapping("/customer")

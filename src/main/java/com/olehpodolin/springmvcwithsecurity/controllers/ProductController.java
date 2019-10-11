@@ -22,7 +22,7 @@ public class ProductController {
 
         model.addAttribute("products", productService.listAll());
 
-        return "products";
+        return "product/products";
     }
 
     @GetMapping("/products/{id}/show")
@@ -30,7 +30,7 @@ public class ProductController {
 
         model.addAttribute("product", productService.getById(id));
 
-        return "showproduct";
+        return "product/showproduct";
     }
 
     @GetMapping("/products/{id}/edit")
@@ -38,7 +38,7 @@ public class ProductController {
 
         model.addAttribute("product", productService.getById(id));
 
-        return "productform";
+        return "product/productform";
     }
 
     @GetMapping("/products/new")
@@ -46,7 +46,7 @@ public class ProductController {
 
         model.addAttribute("product", new Product());
 
-        return "productform";
+        return "product/productform";
     }
 
     @PostMapping("/product")
