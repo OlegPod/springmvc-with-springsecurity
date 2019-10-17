@@ -29,6 +29,7 @@
         <div class="card-body">
         <form class="form" th:object="${product}" th:action="@{/product}" method="post">
             <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{version}"/>
             <div class="form-inline">
                 <label class="col-sm-3 col-form-label-lg">Description:</label>
                     <input type="text" class="form-control" th:field="*{description}"/>

@@ -1,7 +1,6 @@
 package com.olehpodolin.springmvcwithsecurity.controllers;
 
 import com.olehpodolin.springmvcwithsecurity.domain.Customer;
-import com.olehpodolin.springmvcwithsecurity.domain.Product;
 import com.olehpodolin.springmvcwithsecurity.services.CustomerService;
 import org.junit.Before;
 import org.junit.Test;
