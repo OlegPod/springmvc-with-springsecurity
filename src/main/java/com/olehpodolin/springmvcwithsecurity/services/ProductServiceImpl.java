@@ -10,12 +10,6 @@ import java.util.List;
 @Service
 public class ProductServiceImpl extends AbstractJpaDaoService implements ProductService {
 
-    private ProductRepository productRepository;
-
-    public ProductServiceImpl(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
-
     @Override
     public List<?> listAll() {
         EntityManager em = emf.createEntityManager();

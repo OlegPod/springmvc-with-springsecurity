@@ -2,6 +2,8 @@ package com.olehpodolin.springmvcwithsecurity.services;
 
 import com.olehpodolin.springmvcwithsecurity.domain.Customer;
 import com.olehpodolin.springmvcwithsecurity.repositories.CustomerRepository;
+import com.olehpodolin.springmvcwithsecurity.services.security.EncryptionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -10,10 +12,11 @@ import java.util.List;
 @Service
 public class CustomerServiceImpl extends AbstractJpaDaoService implements CustomerService {
 
-    private CustomerRepository customerRepository;
+    private EncryptionService encryptionService;
 
-    public CustomerServiceImpl(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    @Autowired
+    public void setEncryptionService(EncryptionService encryptionService) {
+        this.encryptionService = encryptionService;
     }
 
     @Override
@@ -35,6 +38,12 @@ public class CustomerServiceImpl extends AbstractJpaDaoService implements Custom
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
+
+        if (domainObject.getUser() != null && domainObject.getUser().getPassword() != null) {
+            domainObject.getUser().setEncryptedPassword(
+                    encryptionService.encryptString(domainObject.getUser().getPassword()));
+        }
+
         Customer savedCustomer = em.merge(domainObject);
         em.getTransaction().commit();
 

@@ -20,6 +20,9 @@ public class User {
     private String encryptedPassword;
     private Boolean enabled  = true;
 
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private Customer customer;
+
     public Long getId() {
         return id;
     }
