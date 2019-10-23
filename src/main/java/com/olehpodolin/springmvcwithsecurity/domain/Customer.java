@@ -18,9 +18,23 @@ public class Customer {
     private String phoneNumber;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "addressOne", column = @Column(name = "billing_address_one")),
+            @AttributeOverride(name = "addressTwo", column = @Column(name = "billing_address_two")),
+            @AttributeOverride(name = "city", column = @Column(name = "billing_city")),
+            @AttributeOverride(name = "state", column = @Column(name = "billing_state")),
+            @AttributeOverride(name = "zipCode", column = @Column(name = "billing_zip_code"))
+    })
     private Address billingAddress;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "addressOne", column = @Column(name = "shipping_address_one")),
+            @AttributeOverride(name = "addressTwo", column = @Column(name = "shipping_address_two")),
+            @AttributeOverride(name = "city", column = @Column(name = "shipping_city")),
+            @AttributeOverride(name = "state", column = @Column(name = "shipping_state")),
+            @AttributeOverride(name = "zipCode", column = @Column(name = "shipping_zip_code"))
+    })
     private Address shippingAddress;
 
     @OneToOne
