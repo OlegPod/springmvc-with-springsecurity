@@ -52,7 +52,7 @@ public class Cart {
         this.cartDetails = cartDetails;
     }
 
-    public void addCartDetali(CartDetail cartDetail) {
+    public void addCartDetail(CartDetail cartDetail) {
         cartDetails.add(cartDetail);
         cartDetail.setCart(this);
     }

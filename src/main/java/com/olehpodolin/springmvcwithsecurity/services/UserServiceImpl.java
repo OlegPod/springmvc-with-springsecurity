@@ -3,10 +3,12 @@ package com.olehpodolin.springmvcwithsecurity.services;
 import com.olehpodolin.springmvcwithsecurity.domain.User;
 import com.olehpodolin.springmvcwithsecurity.services.security.EncryptionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@Service
 public class UserServiceImpl extends AbstractJpaDaoService implements UserService {
 
     private EncryptionService encryptionService;

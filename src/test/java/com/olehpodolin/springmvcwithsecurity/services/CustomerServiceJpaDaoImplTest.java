@@ -26,4 +26,5 @@ public class CustomerServiceJpaDaoImplTest {
 
         assert customers.size() == 5;
     }
+
 }
