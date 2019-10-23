@@ -1,12 +1,12 @@
 package com.olehpodolin.springmvcwithsecurity.services;
 
 import com.olehpodolin.springmvcwithsecurity.domain.Customer;
-import com.olehpodolin.springmvcwithsecurity.repositories.CustomerRepository;
 import com.olehpodolin.springmvcwithsecurity.services.security.EncryptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service

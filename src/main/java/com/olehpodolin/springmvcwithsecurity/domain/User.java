@@ -1,5 +1,7 @@
 package com.olehpodolin.springmvcwithsecurity.domain;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
