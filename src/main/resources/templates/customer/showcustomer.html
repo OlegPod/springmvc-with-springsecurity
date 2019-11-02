@@ -46,23 +46,23 @@
                     </form>
                     <form class="form-inline">
                         <label class="col-sm-3 col-form-label-lg">Address One:</label>
-                        <label th:text="${customer.addressOne}">Address One</label>
+                        <label th:text="${customer.billingAddress.addressOne}">Address One</label>
                     </form>
                     <form class="form-inline">
                         <label class="col-sm-3 col-form-label-lg">Address Two:</label>
-                        <label th:text="${customer.addressTwo}">Address Two</label>
+                        <label th:text="${customer.billingAddress.addressTwo}">Address Two</label>
                     </form>
                     <form class="form-inline">
                         <label class="col-sm-3 col-form-label-lg">City:</label>
-                        <label th:text="${customer.city}">City</label>
+                        <label th:text="${customer.billingAddress.city}">City</label>
                     </form>
                     <form class="form-inline">
                         <label class="col-sm-3 col-form-label-lg">State:</label>
-                        <label th:text="${customer.state}">State</label>
+                        <label th:text="${customer.billingAddress.state}">State</label>
                     </form>
                     <form class="form-inline">
                         <label class="col-sm-3 col-form-label-lg">Zip Code:</label>
-                        <label th:text="${customer.zipCode}">Zip Code</label>
+                        <label th:text="${customer.billingAddress.zipCode}">Zip Code</label>
                     </form>
                 </div>
             </div>
