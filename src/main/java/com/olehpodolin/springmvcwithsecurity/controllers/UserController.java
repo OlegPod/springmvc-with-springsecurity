@@ -2,57 +2,64 @@ package com.olehpodolin.springmvcwithsecurity.controllers;
 
 import com.olehpodolin.springmvcwithsecurity.domain.User;
 import com.olehpodolin.springmvcwithsecurity.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
     private UserService userService;
 
-    @Autowired
-    public void setUserService(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @RequestMapping({"/list", "/"})
+    @GetMapping("/users")
     public String listUsers(Model model){
+
         model.addAttribute("users", userService.listAll());
-        return "user/list";
+
+        return "user/users";
     }
 
-    @RequestMapping("/show/{id}")
+    @GetMapping("/users/{id}/show")
     public String getUser(@PathVariable Long id, Model model){
+
         model.addAttribute("user", userService.getById(id));
-        return "user/show";
+
+        return "user/showuser";
     }
 
-    @RequestMapping("/edit/{id}")
+    @GetMapping("/users/{id}/edit")
     public String edit(@PathVariable Long id, Model model){
+
         model.addAttribute("user", userService.getById(id));
+
         return "user/userform";
     }
 
-    @RequestMapping("/new")
+    @GetMapping("/users/new")
     public String newUser(Model model){
+
         model.addAttribute("user", new User());
+
         return "user/userform";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @PostMapping("/user")
     public String saveOrUpdate(User user){
+
         User savedUser = userService.saveOrUpdate(user);
-        return "redirect:/user/show/" + savedUser.getId();
+
+        return "redirect:/users/" + savedUser.getId() + "/show" ;
     }
 
-    @RequestMapping("/delete/{id}")
+    @GetMapping("/users/{id}/delete")
     public String delete(@PathVariable Long id){
+
         userService.delete(id);
-        return "redirect:/user/list";
+
+        return "redirect:/users";
     }
 }
